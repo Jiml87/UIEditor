@@ -1,6 +1,6 @@
 import { Circle, Layer } from 'react-konva';
 
-const GRID_SIZE = 30; // Distance between dots
+const GRID_SIZE = 20; // Distance between dots
 const DOT_RADIUS = 1; // Dot size
 
 const renderDots = () => {

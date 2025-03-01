@@ -43,7 +43,7 @@ export const Panel: FC<PanelProps> = ({ stageRef }) => {
     }
   };
   return (
-    <div className="flex justify-between items-center panel-wrapper px-3">
+    <div className="flex justify-between items-center panel-wrapper px-3 border-b border-zinc-300">
       <div className="font-semibold">Industrial Pathway</div>
       <div className="flex">
         <PanelButton onClick={undo} disabled={historyIndex <= 0}>
