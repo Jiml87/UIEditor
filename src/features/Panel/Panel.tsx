@@ -3,6 +3,7 @@ import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import { PanelButton } from '@/components/Button/PanelButton';
 import { Separator } from '@/components/Separator/Separator';
 import { FullScreenButtons } from './components/FullScreenButtons/FullScreenButtons';
+import { ZoomButtons } from './components/ZoomButtons/ZoomButtons';
 
 import './Panel.css';
 
@@ -42,7 +43,7 @@ export const Panel: FC<PanelProps> = ({ stageRef }) => {
     }
   };
   return (
-    <div className="flex justify-between items-center panel-wrapper">
+    <div className="flex justify-between items-center panel-wrapper px-3">
       <div className="font-semibold">Industrial Pathway</div>
       <div className="flex">
         <PanelButton onClick={undo} disabled={historyIndex <= 0}>
@@ -56,6 +57,8 @@ export const Panel: FC<PanelProps> = ({ stageRef }) => {
         </PanelButton>
         <Separator />
         <FullScreenButtons />
+        <Separator />
+        <ZoomButtons />
       </div>
     </div>
   );
