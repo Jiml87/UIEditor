@@ -1,16 +1,17 @@
 .panel-button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.2em 0.8em;
+  padding: 0.4em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
   background-color: transparent;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: transform 0.25s;
 }
 .panel-button:hover {
-  background-color: #dcd8d8;
+  /* background-color: #dcd8d8; */
+  transform: scale(1.1, 1.1);
 }
 .panel-button:focus,
 .panel-button:focus-visible {
