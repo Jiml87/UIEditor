@@ -8,7 +8,7 @@ export type FolderStatus =
 export const FOLDER_BACKGROUND: Record<FolderStatus, string> = {
   transportationProcess: '#ffeb99', // yellow
   stationaryProcess: '#cfedfc', // blue
-  pathwayMix: '#cfedfc', // purple
+  pathwayMix: '#d1d1fa', // purple
   pathways: '#fcd1cf', // pink
   technologies: '#cffccf', // green
 };
@@ -32,5 +32,9 @@ export type Folder = {
 export type EditorFolder = Folder & {
   meta: {
     collapsed: boolean;
+    position?: {
+      x: number;
+      y: number;
+    };
   };
 };

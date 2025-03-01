@@ -55,7 +55,7 @@ interface InfoItemProps {
 
 export const InfoItem: FC<InfoItemProps> = ({ data }) => {
   return (
-    <Group draggable>
+    <Group x={data.meta.position?.x} y={data.meta.position?.y} draggable>
       <Rect
         fill={FOLDER_BACKGROUND[data.folderStatus]}
         width={FOLDER_WIDTH}
