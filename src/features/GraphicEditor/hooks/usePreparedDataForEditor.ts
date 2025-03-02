@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDataStore } from '@/store/data';
-import { EditorFolder } from '@/consts/folder';
 import { FOLDER_WIDTH } from '@/consts/styles';
 
 interface CanvasSize {
@@ -35,8 +34,7 @@ const generateRandomPosition = (
 };
 
 export const usePreparedDataForEditor = (canvasSize: CanvasSize) => {
-  const { folderData } = useDataStore();
-  const [blocks, setBlocks] = useState<EditorFolder[]>();
+  const { folderData, updateFolderData } = useDataStore();
 
   useEffect(() => {
     const newBlocks: Array<{ x: number; y: number }> = [];
@@ -50,8 +48,8 @@ export const usePreparedDataForEditor = (canvasSize: CanvasSize) => {
       folder.meta.position = newBlocks[index];
       return folder;
     });
-    setBlocks(data);
+    updateFolderData(data);
   }, []);
 
-  return blocks;
+  return folderData;
 };

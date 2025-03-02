@@ -4,14 +4,28 @@ import { EditorFolder } from '@/consts/folder';
 
 interface DataState {
   folderData: EditorFolder[];
+  toggleOpenFolder: (id: string) => void;
+  updateFolderData: (data: EditorFolder[]) => void;
 }
 
-export const useDataStore = create<DataState>()(() => ({
+export const useDataStore = create<DataState>()((set) => ({
+  updateFolderData: (data: EditorFolder[]) =>
+    set({
+      folderData: data,
+    }),
+  toggleOpenFolder: (id: string) =>
+    set((state) => ({
+      folderData: state.folderData.map((item) => {
+        return item.id === id
+          ? { ...item, meta: { ...item.meta, collapsed: !item.meta.collapsed } }
+          : item;
+      }),
+    })),
   folderData: [
     {
       id: '1',
       meta: {
-        collapsed: false,
+        collapsed: true,
       },
       title: 'Ammonia from H2 from Coal Gasification w/ CC S',
       lastUpdatedDate: '6/12/2024 - 12:44',

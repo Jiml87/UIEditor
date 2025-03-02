@@ -8,9 +8,10 @@ import {
   PADDING_1_2,
   PADDING_3_4,
   INPUTS_OUTPUTS_WIDTH,
-  INPUTS_OUTPUTS_HEIGHT,
   FOLDER_WIDTH,
 } from '@/consts/styles';
+import { ToggleButton } from '@/components/ToggleButton/ToggleButton';
+import { useDataStore } from '@/store/data';
 
 import { InputsOutputsBox } from './components/InputsOutputsBox';
 
@@ -19,6 +20,7 @@ interface InfoItemProps {
 }
 
 export const InfoItem: FC<InfoItemProps> = ({ data }) => {
+  const { toggleOpenFolder } = useDataStore();
   const inputsOutputsBoxRef = useRef(null);
   const [inputsOutputsBoxSize, setInputsOutputsBoxSize] = useState<{
     height: number;
@@ -58,6 +60,10 @@ export const InfoItem: FC<InfoItemProps> = ({ data }) => {
         height={(contentSize?.height || 0) + PADDING_3_4 + 20}
         cornerRadius={12}
       />
+      <ToggleButton
+        active={!data.meta.collapsed}
+        onToggle={() => toggleOpenFolder(data.id)}
+      />
       <Group ref={contentRef} x={PADDING_3_4} y={PADDING_3_4}>
         <Group ref={inputsOutputsBoxRef}>
           <Text y={5} text={data.title} fontStyle="600" />
@@ -67,29 +73,33 @@ export const InfoItem: FC<InfoItemProps> = ({ data }) => {
             fill={colors.zinc[600]}
             fontSize={10}
           />
-          <Group y={40}>
-            <InputsOutputsBox type="inputs" metrics={data.inputs} />
-            <InputsOutputsBox
-              type="outputs"
-              x={INPUTS_OUTPUTS_WIDTH + PADDING_1_2}
-              metrics={data.outputs}
+          {!data.meta.collapsed && (
+            <Group y={40}>
+              <InputsOutputsBox type="inputs" metrics={data.inputs} />
+              <InputsOutputsBox
+                type="outputs"
+                x={INPUTS_OUTPUTS_WIDTH + PADDING_1_2}
+                metrics={data.outputs}
+              />
+            </Group>
+          )}
+        </Group>
+        {!data.meta.collapsed && (
+          <Group y={(inputsOutputsBoxSize?.height || 0) + PADDING}>
+            <Text
+              y={5}
+              text="Publication Details Title:"
+              fontStyle="600"
+              fontSize={10}
+            />
+            <Text
+              y={5}
+              x={120}
+              text={`Last updated ${data.publicationDetails}`}
+              fontSize={10}
             />
           </Group>
-        </Group>
-        <Group y={(inputsOutputsBoxSize?.height || 0) + PADDING}>
-          <Text
-            y={5}
-            text="Publication Details Title:"
-            fontStyle="600"
-            fontSize={10}
-          />
-          <Text
-            y={5}
-            x={125}
-            text={`Last updated ${data.publicationDetails}`}
-            fontSize={10}
-          />
-        </Group>
+        )}
       </Group>
     </Group>
   );
