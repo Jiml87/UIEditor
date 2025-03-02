@@ -31,7 +31,7 @@ const generateRandomPosition = (
     }
     attempts++;
   }
-  return { x: 0, y: 0 };
+  return { x: Math.random() * 10, y: Math.random() * 10 };
 };
 
 export const usePreparedDataForEditor = (canvasSize: CanvasSize) => {

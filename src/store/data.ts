@@ -19,11 +19,13 @@ export const useDataStore = create<DataState>()(() => ({
       folderStatus: 'stationaryProcess',
       inputs: [
         {
+          id: '1_1',
           title: 'Nitrogen gas',
           subTitle: 'Mix: Nitrogen production from cryogenic',
           value: '75 %',
         },
         {
+          id: '1_2',
           title: 'Gaseous Hydrogen',
           subTitle: 'Pathway: Central Plants comaresseo G.h',
           value: '10 %',
@@ -31,6 +33,7 @@ export const useDataStore = create<DataState>()(() => ({
       ],
       outputs: [
         {
+          id: '1_3',
           title: 'Ammonia for Fuel',
           subTitle: '',
           value: '100%',
@@ -48,11 +51,13 @@ export const useDataStore = create<DataState>()(() => ({
       folderStatus: 'transportationProcess',
       inputs: [
         {
+          id: '2_1',
           title: 'Nitrogen gas',
           subTitle: 'Mix: Nitrogen production from cryogenic',
           value: '15 %',
         },
         {
+          id: '2_2',
           title: 'Gaseous Hydrogen',
           subTitle: 'Pathway: Central Plants comaresseo G.h',
           value: '10 %',
@@ -60,6 +65,7 @@ export const useDataStore = create<DataState>()(() => ({
       ],
       outputs: [
         {
+          id: '2_3',
           title: 'Ammonia for Fuel',
           subTitle: '',
           value: '100%',
@@ -77,16 +83,19 @@ export const useDataStore = create<DataState>()(() => ({
       folderStatus: 'pathwayMix',
       inputs: [
         {
+          id: '3_1',
           title: 'Nitrogen gas',
           subTitle: 'Mix: Nitrogen production from cryogenic',
           value: '15 %',
         },
         {
+          id: '3_2',
           title: 'Residual Oil',
           subTitle: 'Pathway: Residual Oil (Petroleum)',
           value: '25 %',
         },
         {
+          id: '3_3',
           title: 'Gaseous Hydrogen',
           subTitle: 'Pathway: Central Plants comaresseo G.h',
           value: '15 %',
@@ -94,6 +103,7 @@ export const useDataStore = create<DataState>()(() => ({
       ],
       outputs: [
         {
+          id: '3_1',
           title: 'Ammonia for Fuel',
           subTitle: '',
           value: '100%',

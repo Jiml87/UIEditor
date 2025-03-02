@@ -14,6 +14,7 @@ export const FOLDER_BACKGROUND: Record<FolderStatus, string> = {
 };
 
 export type FolderInputOutput = {
+  id: string;
   title: string;
   subTitle: string;
   value: string;
