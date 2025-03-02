@@ -23,8 +23,9 @@ export const ConsumptionMetrics: FC<ConsumptionMetricsProps> = ({
       const newPositions: Array<{ y: number }> = [];
       let currentY = 0;
 
-      textRefs.current.forEach((textNode, index) => {
+      textRefs.current.forEach((textNode) => {
         if (textNode) {
+          // @ts-ignore
           const height = textNode.getClientRect().height;
           newPositions.push({ y: currentY });
           currentY += height + PADDING_1_4;
@@ -38,6 +39,7 @@ export const ConsumptionMetrics: FC<ConsumptionMetricsProps> = ({
     <Group y={37} x={PADDING_3_4}>
       {metrics.map((item, index) => (
         <Group
+          // @ts-ignore
           ref={(el) => (textRefs.current[index] = el)}
           key={item.id}
           y={positions[index]?.y || 0}

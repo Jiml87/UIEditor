@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Group, Circle, Line } from 'react-konva';
+// @ts-ignore
 import { KonvaEventObject } from 'konva';
 import colors from 'tailwindcss/colors';
 

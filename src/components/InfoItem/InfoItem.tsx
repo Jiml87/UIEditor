@@ -33,6 +33,7 @@ export const InfoItem: FC<InfoItemProps> = ({ data }) => {
   useEffect(() => {
     const updateSize = () => {
       if (inputsOutputsBoxRef.current) {
+        // @ts-ignore
         const height = inputsOutputsBoxRef.current.getClientRect().height;
         setInputsOutputsBoxSize({ height });
       }
@@ -44,6 +45,7 @@ export const InfoItem: FC<InfoItemProps> = ({ data }) => {
   useEffect(() => {
     const updateSize = () => {
       if (contentRef.current) {
+        // @ts-ignore
         const height = contentRef.current.getClientRect().height;
 
         setContentSize({ height });

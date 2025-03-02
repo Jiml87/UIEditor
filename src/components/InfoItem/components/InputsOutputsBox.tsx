@@ -1,4 +1,4 @@
-import { FC, useRef, useState, useEffect, useLayoutEffect } from 'react';
+import { FC, useRef, useState, useEffect } from 'react';
 import { Group, Rect, Text, Line } from 'react-konva';
 import { FolderInputOutput } from '@/consts/folder';
 
@@ -30,6 +30,7 @@ export const InputsOutputsBox: FC<InputsOutputsBoxProps> = ({
   useEffect(() => {
     const updateSize = () => {
       if (contentRef.current) {
+        // @ts-ignore
         const height = contentRef.current.getClientRect().height;
         setContentSize({ height });
       }
