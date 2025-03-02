@@ -31,8 +31,6 @@ export const InputsOutputsBox: FC<InputsOutputsBoxProps> = ({
     const updateSize = () => {
       if (contentRef.current) {
         const height = contentRef.current.getClientRect().height;
-        console.log(contentRef.current.getClientRect());
-
         setContentSize({ height });
       }
     };
@@ -44,7 +42,7 @@ export const InputsOutputsBox: FC<InputsOutputsBoxProps> = ({
     <Group x={x} y={y}>
       <Rect
         width={INPUTS_OUTPUTS_WIDTH}
-        height={(contentSize?.height || 0) + PADDING_3_4}
+        height={(contentSize?.height || 0) + PADDING}
         fill="#ffffff"
         cornerRadius={12}
       />

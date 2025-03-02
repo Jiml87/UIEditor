@@ -79,7 +79,8 @@ export const useDataStore = create<DataState>()(() => ({
       },
       title: 'Lime Production (CaO) in Chile',
       lastUpdatedDate: '6/12/2024 - 12:44',
-      publicationDetails: 'Analysis of Petroleum Refining',
+      publicationDetails:
+        'Title: Life Cycle Assessment of Corn based Butanol as a transportation fuel.',
       folderStatus: 'pathwayMix',
       inputs: [
         {

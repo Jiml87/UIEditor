@@ -1,5 +1,7 @@
 import { FC, useRef, useState, useEffect } from 'react';
 import { Group, Text } from 'react-konva';
+import colors from 'tailwindcss/colors';
+
 import { FolderInputOutput } from '@/consts/folder';
 import {
   PADDING_3_4,
@@ -41,7 +43,6 @@ export const ConsumptionMetrics: FC<ConsumptionMetricsProps> = ({
           y={positions[index]?.y || 0}
         >
           <Text
-            key={index}
             text={item.title}
             fontSize={10}
             fontStyle="600"
@@ -50,7 +51,6 @@ export const ConsumptionMetrics: FC<ConsumptionMetricsProps> = ({
             wrap="word"
           />
           <Text
-            key={index}
             y={10}
             text={item.subTitle}
             fontSize={10}
@@ -58,15 +58,16 @@ export const ConsumptionMetrics: FC<ConsumptionMetricsProps> = ({
             width={INPUTS_OUTPUTS_WIDTH - 50}
             align="left"
             wrap="word"
+            fill={colors.zinc[600]}
           />
           <Text
-            key={index}
             text={item.value}
             fontSize={10}
             fontStyle="400"
             width={INPUTS_OUTPUTS_WIDTH - 20}
             align="right"
             wrap="word"
+            fill={colors.zinc[900]}
           />
         </Group>
       ))}
